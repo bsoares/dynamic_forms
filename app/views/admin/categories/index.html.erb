@@ -1,3 +1,5 @@
+<% content_for(:page_title) { t(".title") } %>
+
 <table class="table table-striped">
   <thead>
     <th><%= t("activerecord.attributes.category.name") %></th>
@@ -7,7 +9,7 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
-        <td><%= link_to t("sub_categories.index.title"), admin_category_sub_categories_url(category) %></td>
+        <td><%= link_to t("admin.sub_categories.index.title"), admin_category_sub_categories_url(category) %></td>
       </tr>
     <% end %>
   </tbody>
