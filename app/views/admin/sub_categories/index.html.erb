@@ -1,0 +1,14 @@
+<table class="table table-striped">
+  <thead>
+    <th><%= t("activerecord.attributes.sub_category.name") %></th>
+    <th width="100"></th>
+  </thead>
+  <tbody>
+    <% @sub_categories.each do |sub_category| %>
+      <tr>
+        <td><%= sub_category.name %></td>
+        <td><%#= link_to "a", xxx(category) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
