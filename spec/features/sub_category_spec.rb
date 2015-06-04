@@ -7,7 +7,7 @@ RSpec.feature "Sub Category" do
 
       visit admin_categories_url
 
-      click_link t("sub_categories.index.title")
+      click_link t("admin.sub_categories.index.title")
 
       expect(page).to have_content sub_category.name
     end

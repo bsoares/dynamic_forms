@@ -1,0 +1,14 @@
+/*
+ *= require_self
+ */
+
+$header_margin: 20px;
+
+body {
+  padding-top: $header_margin;
+  padding-bottom: $header_margin;
+}
+
+.navbar {
+  margin-bottom: $header_margin;
+}
