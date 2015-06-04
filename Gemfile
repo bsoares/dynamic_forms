@@ -99,6 +99,10 @@ group :test do
   # https://github.com/thoughtbot/shoulda-matchers
   gem "shoulda-matchers"
 
+  # Database Cleaner is a set of strategies for cleaning your database in Ruby.
+  # https://github.com/DatabaseCleaner/database_cleaner
+  gem "database_cleaner"
+
   # Formulaic allows you to specify a hash of attributes to be input rather than
   # procedurally calling Capybara's DSL methods.
   # https://github.com/thoughtbot/formulaic
