@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/BSoares/dynamic_forms/badges/gpa.svg)](https://codeclimate.com/github/BSoares/dynamic_forms) [![Test Coverage](https://codeclimate.com/github/BSoares/dynamic_forms/badges/coverage.svg)](https://codeclimate.com/github/BSoares/dynamic_forms/coverage)
+
 # Dynamic Forms
 
 Just an exercise with Rails 4
