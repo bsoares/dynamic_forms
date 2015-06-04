@@ -7,7 +7,7 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
-        <td><%#= link_to "a", xxx(category) %></td>
+        <td><%= link_to t("sub_categories.index.title"), admin_category_sub_categories_url(category) %></td>
       </tr>
     <% end %>
   </tbody>
