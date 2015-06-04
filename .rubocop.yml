@@ -1,0 +1,30 @@
+Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: space
+
+Style/PercentQLiterals:
+  EnforcedStyle: upper_case_q
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+AllCops:
+  Exclude:
+    - "config.ru"
+    - "bin/**/*"
+    - "db/schema.rb"
+    - "Gemfile.lock"
+    - "Rakefile"
+    - "config/boot.rb"
+    - "config/locales/**/*"
+    - "**/*.yml"
+    - "**/*.erb"
+    - "README.md"
