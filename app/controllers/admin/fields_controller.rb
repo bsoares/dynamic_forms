@@ -20,6 +20,7 @@ module Admin
           @category, @sub_category, @form)
         return
       end
+
       flash[:error] = t(".flash.error")
       render :new
     end
@@ -32,6 +33,7 @@ module Admin
       else
         flash[:error] = t(".flash.error")
       end
+
       render :edit
     end
 
@@ -41,6 +43,7 @@ module Admin
       else
         flash[:error] = t(".flash.error")
       end
+
       redirect_to admin_category_sub_category_form_fields_path(
         @category, @sub_category, @form)
     end
