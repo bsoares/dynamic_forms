@@ -6,4 +6,8 @@ class FieldDecorator < Draper::Decorator
   def field_type_translated
     t("field_types.#{field_type}")
   end
+
+  def input_name
+    "input_#{id}"
+  end
 end

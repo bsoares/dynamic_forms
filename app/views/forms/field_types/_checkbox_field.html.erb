@@ -1,0 +1,11 @@
+<label>
+  <%= field.name %>
+  <% field.options.each do |option| %>
+    <div class="checkbox">
+      <label>
+        <%= check_box_tag "#{field.input_name}[]", option.id, false %>
+        <%= option.name %>
+      </label>
+    </div>
+  <% end %>
+</label>

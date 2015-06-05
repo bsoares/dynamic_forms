@@ -13,6 +13,8 @@ class SubCategory < ActiveRecord::Base
   validates :slug,
     uniqueness: { scope: :category_id }
 
+  scope :preload_options, -> { preload(forms: { fields: :options }) }
+
   def to_param
     slug
   end
