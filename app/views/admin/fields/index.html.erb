@@ -1,0 +1,40 @@
+<% content_for(:page_title) { t(".title") } %>
+
+<% if @fields.any? %>
+  <table class="table table-striped">
+    <thead>
+      <th width="55"><%= t("activerecord.attributes.field.order") %></th>
+      <th width="115"><%= t("activerecord.attributes.field.field_type") %></th>
+      <th><%= t("activerecord.attributes.field.name") %></th>
+      <th width="36"></th>
+      <th width="36"></th>
+    </thead>
+    <tbody>
+      <% @fields.each do |field| %>
+        <tr>
+          <td><%= field.order %></td>
+          <td><%= t("field_types.#{field.field_type}") %></td>
+          <td><%= field.name %></td>
+          <td>
+            <%= link_to edit_admin_category_sub_category_form_field_url(@category, @sub_category, @form, field), title: t("admin.fields.edit.title") do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to admin_category_sub_category_form_field_url(@category, @sub_category, @form, field), method: :delete, title: t("admin.fields.destroy.title"), data: { confirm: t("admin.fields.destroy.confirm", name: field.name) } do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <p class="alert alert-info"><%= t(".flash.empty") %></p>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to t("admin.fields.new.title"), new_admin_category_sub_category_form_field_url(@category, @sub_category, @form) %>
