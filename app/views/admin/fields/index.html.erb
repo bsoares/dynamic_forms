@@ -1,4 +1,4 @@
-<% content_for(:page_title) { t(".title") } %>
+<% page_title t(".title") %>
 
 <% if @fields.any? %>
   <table class="table table-striped">
@@ -11,36 +11,24 @@
       <th width="36"></th>
     </thead>
     <tbody>
-      <% @fields.each do |field| %>
+      <% @fields.decorate.each do |field| %>
         <tr>
           <td><%= field.order %></td>
-          <td><%= t("field_types.#{field.field_type}") %></td>
+          <td><%= field.field_type_translated %></td>
           <td><%= field.name %></td>
           <td>
             <% if field.multi_selection? %>
               <%= link_to t("admin.options.index.title"), admin_category_sub_category_form_field_options_url(@category, @sub_category, @form, field) %>
             <% end %>
           </td>
-          <td>
-            <%= link_to edit_admin_category_sub_category_form_field_url(@category, @sub_category, @form, field), title: t("admin.fields.edit.title") do %>
-              <i class="fa fa-pencil"></i>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to admin_category_sub_category_form_field_url(@category, @sub_category, @form, field), method: :delete, title: t("admin.fields.destroy.title"), data: { confirm: t("admin.fields.destroy.confirm", name: field.name) } do %>
-              <i class="fa fa-trash-o"></i>
-            <% end %>
-          </td>
+          <td><%= link_to_edit edit_admin_category_sub_category_form_field_url(@category, @sub_category, @form, field), t("admin.fields.edit.title") %></td>
+          <td><%= link_to_destroy admin_category_sub_category_form_field_url(@category, @sub_category, @form, field), t("admin.fields.destroy.confirm", name: field.name), t("admin.fields.destroy.title") %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 <% else %>
-  <div class="row">
-    <div class="col-md-offset-4 col-md-4">
-      <p class="alert alert-info"><%= t(".flash.empty") %></p>
-    </div>
-  </div>
+  <%= render "admin/partials/list_empty", message: t(".flash.empty") %>
 <% end %>
 
 <%= link_to t("admin.fields.new.title"), new_admin_category_sub_category_form_field_url(@category, @sub_category, @form) %>
