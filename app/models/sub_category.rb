@@ -12,4 +12,8 @@ class SubCategory < ActiveRecord::Base
 
   validates :slug,
     uniqueness: { scope: :category_id }
+
+  def to_param
+    slug
+  end
 end

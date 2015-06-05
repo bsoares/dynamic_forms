@@ -48,7 +48,7 @@ module Admin
     private
 
     def load_categories
-      @sub_category = SubCategory.find(params[:sub_category_id])
+      @sub_category = SubCategory.find_by(slug: params[:sub_category_slug])
       @category = @sub_category.category
     end
 
