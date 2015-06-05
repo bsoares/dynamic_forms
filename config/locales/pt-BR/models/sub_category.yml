@@ -6,6 +6,5 @@ pt-BR:
         other: "Subcategorias"
     attributes:
       sub_category:
-        category: "Categoria"
         name: "Nome"
         slug: "Link"

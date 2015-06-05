@@ -2,6 +2,7 @@ class SubCategory < ActiveRecord::Base
   include Slugable
 
   belongs_to :category
+  has_many :forms
 
   validates :category_id,
     presence: true

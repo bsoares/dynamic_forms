@@ -1,0 +1,18 @@
+pt-BR:
+  admin:
+    forms:
+      index:
+        flash:
+          empty: "Nenhum formulário cadastrado."
+      create:
+        flash:
+          success: "Formulário criado com sucesso."
+          error: "Erro ao criar formulário."
+      update:
+        flash:
+          success: "Formulário editado com sucesso."
+          error: "Erro ao editar formulário."
+      destroy:
+        flash:
+          success: "Formulário excluído com sucesso."
+          error: "Erro ao excluír formulário."
