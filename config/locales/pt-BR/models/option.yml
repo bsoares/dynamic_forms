@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      option:
+        one: "Opção"
+        other: "Opções"
+    attributes:
+      option:
+        name: "Nome"

@@ -1,0 +1,12 @@
+pt-BR:
+  admin:
+    options:
+      index:
+        title: "Opções"
+      new:
+        title: "Adicionar opção"
+      edit:
+        title: "Editar opção"
+      destroy:
+        title: "Excluír opção"
+        confirm: "Tem certeza que deseja excluír a opção %{name}?"

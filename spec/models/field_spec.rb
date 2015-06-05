@@ -23,4 +23,28 @@ RSpec.describe Field do
       end
     end
   end
+
+  describe "'multi_selection?' method" do
+    it "returns true if field_type has a value that permits sub options" do
+      field = build(:field, field_type: Field.field_types[:select_field])
+      expect(field.multi_selection?).to eql true
+
+      field.field_type = Field.field_types[:checkbox_field]
+      expect(field.multi_selection?).to eql true
+    end
+
+    it "returns false if field_type has a value that do not permits " \
+      "sub options" do
+      field = build(:field, field_type: Field.field_types[:text_field])
+      expect(field.multi_selection?).to eql false
+
+      field.field_type = Field.field_types[:textarea_field]
+      expect(field.multi_selection?).to eql false
+    end
+
+    it "returns false if field_type is not set" do
+      field = build(:field, field_type: nil)
+      expect(field.multi_selection?).to eql false
+    end
+  end
 end
