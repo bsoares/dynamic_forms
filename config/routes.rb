@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   scope :admin, module: :admin, as: :admin do
     resources :categories, only: :index do
-      resources :sub_categories, only: :index
+      resources :sub_categories, only: :index do
+        resources :forms
+      end
     end
   end
 end
