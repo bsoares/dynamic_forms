@@ -6,6 +6,7 @@
       <th width="55"><%= t("activerecord.attributes.field.order") %></th>
       <th width="115"><%= t("activerecord.attributes.field.field_type") %></th>
       <th><%= t("activerecord.attributes.field.name") %></th>
+      <th width="70"></th>
       <th width="36"></th>
       <th width="36"></th>
     </thead>
@@ -15,6 +16,11 @@
           <td><%= field.order %></td>
           <td><%= t("field_types.#{field.field_type}") %></td>
           <td><%= field.name %></td>
+          <td>
+            <% if field.multi_selection? %>
+              <%= link_to t("admin.options.index.title"), admin_category_sub_category_form_field_options_url(@category, @sub_category, @form, field) %>
+            <% end %>
+          </td>
           <td>
             <%= link_to edit_admin_category_sub_category_form_field_url(@category, @sub_category, @form, field), title: t("admin.fields.edit.title") do %>
               <i class="fa fa-pencil"></i>

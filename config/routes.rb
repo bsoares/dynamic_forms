@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :categories, only: :index do
       resources :sub_categories, only: :index do
         resources :forms, except: :show do
-          resources :fields, except: :show
+          resources :fields, except: :show do
+            resources :options, except: :show
+          end
         end
       end
     end

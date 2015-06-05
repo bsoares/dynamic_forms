@@ -1,0 +1,36 @@
+<% content_for(:page_title) { t(".title") } %>
+
+<% if @options.any? %>
+  <table class="table table-striped">
+    <thead>
+      <th><%= t("activerecord.attributes.option.name") %></th>
+      <th width="36"></th>
+      <th width="36"></th>
+    </thead>
+    <tbody>
+      <% @options.each do |option| %>
+        <tr>
+          <td><%= option.name %></td>
+          <td>
+            <%= link_to edit_admin_category_sub_category_form_field_option_url(@category, @sub_category, @form, @field, option), title: t("admin.options.edit.title") do %>
+              <i class="fa fa-pencil"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to admin_category_sub_category_form_field_option_url(@category, @sub_category, @form, @field, option), method: :delete, title: t("admin.options.destroy.title"), data: { confirm: t("admin.options.destroy.confirm", name: option.name) } do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <p class="alert alert-info"><%= t(".flash.empty") %></p>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to t("admin.options.new.title"), new_admin_category_sub_category_form_field_option_url(@category, @sub_category, @form, @field) %>

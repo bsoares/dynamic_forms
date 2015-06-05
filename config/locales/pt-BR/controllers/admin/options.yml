@@ -1,0 +1,18 @@
+pt-BR:
+  admin:
+    options:
+      index:
+        flash:
+          empty: "Nenhuma opção cadastrada."
+      create:
+        flash:
+          success: "Opção criada com sucesso."
+          error: "Erro ao criar opção."
+      update:
+        flash:
+          success: "Opção editada com sucesso."
+          error: "Erro ao editar opção."
+      destroy:
+        flash:
+          success: "Opção excluída com sucesso."
+          error: "Erro ao excluír opção."
