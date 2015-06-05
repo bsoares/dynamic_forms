@@ -22,4 +22,12 @@ RSpec.describe SubCategory do
       end
     end
   end
+
+  describe "to_param" do
+    it "returns the slug instead of the id" do
+      sub_category = create(:sub_category)
+
+      expect(sub_category.to_param).to eql sub_category.slug
+    end
+  end
 end

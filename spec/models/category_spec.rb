@@ -14,4 +14,12 @@ RSpec.describe Category do
       it { is_expected.to validate_uniqueness_of(:slug) }
     end
   end
+
+  describe "to_param" do
+    it "returns the slug instead of the id" do
+      category = create(:category)
+
+      expect(category.to_param).to eql category.slug
+    end
+  end
 end
