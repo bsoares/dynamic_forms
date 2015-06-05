@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: redirect("/admin")
+  root to: "home#home"
 
   scope :admin, module: :admin, as: :admin do
     resources :categories, only: :index, param: :slug, path: "" do
@@ -10,6 +10,12 @@ Rails.application.routes.draw do
           end
         end
       end
+    end
+  end
+
+  resources :categories, only: :none, param: :slug, path: "" do
+    resources :sub_categories, only: :none, param: :slug, path: "" do
+      get "forms", to: "forms#build", path: ""
     end
   end
 end

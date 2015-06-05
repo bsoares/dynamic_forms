@@ -1,0 +1,27 @@
+<% page_title t(".title", category: @category.name, sub_category: @sub_category.name) %>
+
+<% if @forms.any? %>
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+
+      <% @forms.each do |form| %>
+        <div class="row">
+          <h3><%= form.name %></h3>
+          <%= form_tag "#" do %>
+
+            <% form.fields.ordered.decorate.each do |field| %>
+              <div class="form-group">
+                <%= render "forms/field_types/#{field.field_type}", field: field %>
+              </div>
+            <% end %>
+
+            <%= submit_tag t(".submit"), class: "btn btn-primary disabled" %>
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+<% else %>
+  <%= render "admin/partials/list_empty", message: t(".empty") %>
+<% end %>
