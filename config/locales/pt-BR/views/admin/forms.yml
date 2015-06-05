@@ -1,0 +1,12 @@
+pt-BR:
+  admin:
+    forms:
+      index:
+        title: "Formulários"
+      new:
+        title: "Adicionar formulário"
+      edit:
+        title: "Editar formulário"
+      destroy:
+        title: "Excluír formulário"
+        confirm: "Tem certeza que deseja excluír o formulário %{name}?"

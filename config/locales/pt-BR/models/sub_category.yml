@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      sub_category:
+        one: "Subcategoria"
+        other: "Subcategorias"
+    attributes:
+      sub_category:
+        name: "Nome"
+        slug: "Link"
