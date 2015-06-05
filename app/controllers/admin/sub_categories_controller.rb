@@ -8,7 +8,7 @@ module Admin
     private
 
     def load_category
-      @category = Category.find(params[:category_id])
+      @category = Category.find_by(slug: params[:category_slug])
     end
   end
 end
