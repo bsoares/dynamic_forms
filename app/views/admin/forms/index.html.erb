@@ -4,6 +4,7 @@
   <table class="table table-striped">
     <thead>
       <th><%= t("activerecord.attributes.form.name") %></th>
+      <th width="76"></th>
       <th width="36"></th>
       <th width="36"></th>
     </thead>
@@ -11,6 +12,7 @@
       <% @forms.each do |form| %>
         <tr>
           <td><%= form.name %></td>
+          <td><%= link_to t("admin.fields.index.title"), admin_category_sub_category_form_fields_url(@category, @sub_category, form) %></td>
           <td>
             <%= link_to edit_admin_category_sub_category_form_url(@category, @sub_category, form), title: t("admin.forms.edit.title") do %>
               <i class="fa fa-pencil"></i>

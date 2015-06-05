@@ -1,0 +1,18 @@
+pt-BR:
+  admin:
+    fields:
+      index:
+        flash:
+          empty: "Nenhum campo cadastrado."
+      create:
+        flash:
+          success: "Campo criado com sucesso."
+          error: "Erro ao criar campo."
+      update:
+        flash:
+          success: "Campo editado com sucesso."
+          error: "Erro ao editar campo."
+      destroy:
+        flash:
+          success: "Campo excluído com sucesso."
+          error: "Erro ao excluír campo."

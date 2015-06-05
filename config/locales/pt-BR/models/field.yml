@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      field:
+        one: "Campo"
+        other: "Campos"
+    attributes:
+      field:
+        name: "Nome"
+        order: "Ordem"
+        field_type: "Tipo"
+
+  field_types:
+    text_field: "Text"
+    textarea_field: "Textarea"
+    select_field: "Select"
+    checkbox_field: "Checkbox"
