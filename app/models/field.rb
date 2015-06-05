@@ -16,4 +16,6 @@ class Field < ActiveRecord::Base
   validates :name,
     presence: true,
     length: { within: 1..100 }
+
+  scope :ordered, -> { order(:order) }
 end
