@@ -26,6 +26,21 @@ RSpec.feature "Field" do
 
       expect(page).to have_content t("admin.fields.index.flash.empty")
     end
+
+    specify "requires a ordered list (by order attribute)" do
+      form = create(:form)
+      sub_category = form.sub_category
+      category = sub_category.category
+
+      create(:field, form: form, order: 2, name: "Field 2")
+      create(:field, form: form, order: 3, name: "Field 3")
+      create(:field, form: form, order: 1, name: "Field 1")
+
+      visit admin_category_sub_category_form_fields_path(
+        category, sub_category, form)
+
+      expect(page.text).to match(/Field 1.*Field 2.*Field 3/)
+    end
   end
 
   context "create" do

@@ -4,7 +4,7 @@ module Admin
     before_action :load_field, only: [:edit, :update, :destroy]
 
     def index
-      @fields = @form.fields
+      @fields = @form.fields.ordered
     end
 
     def new
