@@ -25,3 +25,7 @@ Just an exercise with Rails 4
 ### Running Guard with Robocop
 
 * Just run ```bundle exec guard```
+
+### Demo
+
+https://rails4-dynamic-forms.herokuapp.com
