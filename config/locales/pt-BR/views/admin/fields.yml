@@ -1,0 +1,12 @@
+pt-BR:
+  admin:
+    fields:
+      index:
+        title: "Campos"
+      new:
+        title: "Adicionar campo"
+      edit:
+        title: "Editar campo"
+      destroy:
+        title: "Excluír campo"
+        confirm: "Tem certeza que deseja excluír o campo %{name}?"
