@@ -24,7 +24,24 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to t("admin.categories.index.title"), admin_categories_path %></li>
+            <% @categories_tree.each do |category| %>
+              <li class="dropdown">
+                <%= link_to "#", class: "dropdown-toggle", data: { toggle: "dropdown" } do %>
+                  <%= category.name %>
+                  <span class="caret"></span>
+                <% end %>
+                <ul class="dropdown-menu">
+                  <% category.sub_categories.each do |sub_category| %>
+                    <li>
+                      <%= link_to sub_category.name, category_sub_category_forms_path(category, sub_category) %>
+                    </li>
+                  <% end %>
+                </ul>
+              </li>
+            <% end %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Admin", admin_categories_path %></li>
           </ul>
         </div>
       </div>

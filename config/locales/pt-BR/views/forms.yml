@@ -1,0 +1,6 @@
+pt-BR:
+  forms:
+    build:
+      title: "%{category} / %{sub_category}"
+      submit: "Enviar"
+      empty: "Nunhum formulário cadastrado."
