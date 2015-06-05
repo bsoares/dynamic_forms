@@ -12,4 +12,21 @@ module ApplicationHelper
       end
     end.join.html_safe
   end
+
+  def page_title(title)
+    content_for(:page_title) { title }
+  end
+
+  def link_to_edit(path, title)
+    link_to path, title: title do
+      content_tag(:i, "", class: "fa fa-pencil")
+    end
+  end
+
+  def link_to_destroy(path, confirm_message, title)
+    link_to(path, method: :delete, title: title, data:
+      { confirm: confirm_message }) do
+      content_tag(:i, "", class: "fa fa-trash-o")
+    end
+  end
 end
