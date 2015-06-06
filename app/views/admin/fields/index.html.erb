@@ -1,5 +1,7 @@
 <% page_title t(".title") %>
 
+<%= render "tabs" %>
+
 <% if @fields.any? %>
   <table class="table table-striped">
     <thead>
@@ -30,5 +32,3 @@
 <% else %>
   <%= render "admin/partials/list_empty", message: t(".flash.empty") %>
 <% end %>
-
-<%= link_to t("admin.fields.new.title"), new_admin_category_sub_category_form_field_url(@category, @sub_category, @form) %>

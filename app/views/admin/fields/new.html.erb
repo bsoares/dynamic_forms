@@ -1,5 +1,7 @@
 <% page_title t(".title") %>
 
+<%= render "tabs" %>
+
 <%= form_for @field, url: { action: "create" } do |f| %>
   <%= render "form", f: f %>
 <% end %>
