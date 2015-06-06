@@ -9,5 +9,9 @@ module Slugable
     validates :slug,
       presence: true,
       length: { within: 1..100 }
+
+    def to_param
+      slug
+    end
   end
 end

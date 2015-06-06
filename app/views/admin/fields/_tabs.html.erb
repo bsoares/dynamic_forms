@@ -1,0 +1,26 @@
+<ul class="nav nav-tabs main-nav-tabs">
+  <li class="<%= "active" if ["new", "create"].include?(params["action"]) %>">
+    <%= link_to new_admin_category_sub_category_form_field_url(@category, @sub_category, @form) do %>
+      <i class="fa fa-plus"></i>
+      <%= t("admin.fields.new.title") %>
+    <% end %>
+  </li>
+
+  <li class="<%= "active" if params["action"] == "index" %>">
+    <%= link_to admin_category_sub_category_form_fields_url(@category, @sub_category, @form) do %>
+      <i class="fa fa-list"></i>
+      <%= t("admin.fields.index.title") %>
+    <% end %>
+  </li>
+
+  <% if @field.present? and @field.persisted? %>
+
+    <li class="<%= "active" if ["edit", "update"].include?(params["action"]) %>">
+      <%= link_to edit_admin_category_sub_category_form_field_url(@category, @sub_category, @form, @field) do %>
+        <i class="fa fa-pencil"></i>
+        <%= t("admin.fields.edit.title") %>
+      <% end %>
+    </li>
+
+  <% end %>
+</ul>
