@@ -32,6 +32,10 @@ gem "draper"
 # https://github.com/puma/puma
 gem "puma"
 
+# Creating and managing a breadcrumb navigation.
+# https://github.com/weppos/breadcrumbs_on_rails
+gem "breadcrumbs_on_rails"
+
 group :development, :test do
   # https://github.com/rweng/pry-rails
   gem "pry-rails"

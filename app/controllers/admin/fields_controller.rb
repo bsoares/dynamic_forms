@@ -1,7 +1,13 @@
 module Admin
-  class FieldsController < ApplicationController
+  class FieldsController < AdminController
+    include Admin::Breadcrumb
+
     before_action :load_nested_objects
     before_action :load_field, only: [:edit, :update, :destroy]
+
+    before_action :set_fields
+    before_action :new_breadcrumb, only: [:new, :create]
+    before_action :edit_breadcrumb, only: [:edit, :update]
 
     def index
       @fields = @form.fields.ordered
@@ -14,35 +20,32 @@ module Admin
     def create
       @field = @form.fields.build(field_params)
 
-      if @field.save
-        flash[:success] = t(".flash.success")
+      success = @field.save
+
+      send_conditional_flash_message(success)
+
+      if success
         redirect_to admin_category_sub_category_form_fields_path(
           @category, @sub_category, @form)
-        return
+      else
+        render :new
       end
-
-      flash[:error] = t(".flash.error")
-      render :new
     end
 
     def edit; end
 
     def update
-      if @field.update(field_params)
-        flash[:success] = t(".flash.success")
-      else
-        flash[:error] = t(".flash.error")
-      end
+      success = @field.update(field_params)
+
+      send_conditional_flash_message(success)
 
       render :edit
     end
 
     def destroy
-      if @field.destroy
-        flash[:success] = t(".flash.success")
-      else
-        flash[:error] = t(".flash.error")
-      end
+      success = @field.destroy
+
+      send_conditional_flash_message(success)
 
       redirect_to admin_category_sub_category_form_fields_path(
         @category, @sub_category, @form)
@@ -62,6 +65,18 @@ module Admin
 
     def field_params
       params.require(:field).permit(:field_type, :order, :name)
+    end
+
+    def new_breadcrumb
+      add_breadcrumb t("admin.fields.new.title"),
+        new_admin_category_sub_category_form_field_path(
+          @category, @sub_category, @form)
+    end
+
+    def edit_breadcrumb
+      add_breadcrumb t("admin.fields.edit.title"),
+        edit_admin_category_sub_category_form_field_path(
+          @category, @sub_category, @form, @field)
     end
   end
 end

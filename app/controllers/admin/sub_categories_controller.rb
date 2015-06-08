@@ -1,7 +1,12 @@
 module Admin
-  class SubCategoriesController < ApplicationController
+  class SubCategoriesController < AdminController
+    include Admin::Breadcrumb
+
     def index
       load_category
+
+      set_sub_categories
+
       @sub_categories = @category.sub_categories
     end
 
