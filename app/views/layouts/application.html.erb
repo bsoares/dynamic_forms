@@ -49,6 +49,16 @@
 
     <%= flash_messages %>
 
+    <% if @breadcrumbs.present? %>
+      <div class="row">
+        <div class="col-md-12">
+          <ol class="breadcrumb">
+            <%= render_breadcrumbs tag: :li, separator: "" %>
+          </ol>
+        </div>
+      </div>
+    <% end %>
+
     <% if content_for?(:page_title) %>
       <div class="row">
         <div class="col-md-12">

@@ -1,7 +1,13 @@
 module Admin
-  class FormsController < ApplicationController
+  class FormsController < AdminController
+    include Admin::Breadcrumb
+
     before_action :load_categories
     before_action :load_form, only: [:edit, :update, :destroy]
+
+    before_action :set_forms
+    before_action :new_breadcrumb, only: [:new, :create]
+    before_action :edit_breadcrumb, only: [:edit, :update]
 
     def index
       @forms = @sub_category.forms
@@ -14,33 +20,33 @@ module Admin
     def create
       @form = @sub_category.forms.build(form_params)
 
-      if @form.save
-        flash[:success] = t(".flash.success")
+      success = @form.save
+
+      send_conditional_flash_message(success)
+
+      if success
         redirect_to admin_category_sub_category_forms_path(
           @category, @sub_category)
-        return
+      else
+        render :new
       end
-      flash[:error] = t(".flash.error")
-      render :new
     end
 
     def edit; end
 
     def update
-      if @form.update(form_params)
-        flash[:success] = t(".flash.success")
-      else
-        flash[:error] = t(".flash.error")
-      end
+      success = @form.update(form_params)
+
+      send_conditional_flash_message(success)
+
       render :edit
     end
 
     def destroy
-      if @form.destroy
-        flash[:success] = t(".flash.success")
-      else
-        flash[:error] = t(".flash.error")
-      end
+      success = @form.destroy
+
+      send_conditional_flash_message(success)
+
       redirect_to admin_category_sub_category_forms_url(
         @category, @sub_category)
     end
@@ -58,6 +64,17 @@ module Admin
 
     def form_params
       params.require(:form).permit(:name)
+    end
+
+    def new_breadcrumb
+      add_breadcrumb t("admin.forms.new.title"),
+        new_admin_category_sub_category_form_path(@category, @sub_category)
+    end
+
+    def edit_breadcrumb
+      add_breadcrumb t("admin.forms.edit.title"),
+        edit_admin_category_sub_category_form_path(
+          @category, @sub_category, @form)
     end
   end
 end
