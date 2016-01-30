@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "2.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "4.2.1"
+gem "rails", "~> 4.2.5.1"
 
 # Use postgresql as the database for Active Record
 gem "pg"
@@ -12,13 +12,13 @@ gem "pg"
 gem "sass-rails", "~> 5.0"
 
 # Use Uglifier as compressor for JavaScript assets
-gem "uglifier", ">= 1.3.0"
+gem "uglifier", ">= 2.7.2"
 
 # Use CoffeeScript for .coffee assets and views
 gem "coffee-rails", "~> 4.1.0"
 
 # Use jquery as the JavaScript library
-gem "jquery-rails"
+gem "jquery-rails", ">= 4.0.4"
 
 # OpenBSD bcrypt() password hashing algorithm
 # https://github.com/codahale/bcrypt-ruby
@@ -51,7 +51,7 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   # https://github.com/rails/web-console
-  gem "web-console", "~> 2.0"
+  gem "web-console", ">= 2.1.3"
 
   # Spring speeds up development by keeping your application running in
   # the background.
@@ -117,3 +117,7 @@ group :production do
   # https://github.com/heroku/rails_12factor
   gem "rails_12factor"
 end
+
+gem "nokogiri", ">= 1.6.7.2"
+gem "rack", ">= 1.6.2"
+gem "rails-html-sanitizer", "~> 1.0.3"
